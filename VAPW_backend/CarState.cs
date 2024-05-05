@@ -8,8 +8,11 @@ namespace VAPW_backend
 {
         public enum CarState
         {
+            cekaNaPrijezd,
             cekaNaMycku,
+
             uvnitrMycky,
+
             zaMyckou
-        }
+    }
 }
