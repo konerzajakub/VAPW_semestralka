@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VAPW_backend", "VAPW_backend\VAPW_backend.csproj", "{A8037417-E66D-446E-9C36-1081333D9C02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VAPW_frontend", "VAPW_frontend\VAPW_frontend.csproj", "{B502BC35-1380-4DB6-BBA9-51F87CCA3A1B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8037417-E66D-446E-9C36-1081333D9C02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8037417-E66D-446E-9C36-1081333D9C02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8037417-E66D-446E-9C36-1081333D9C02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8037417-E66D-446E-9C36-1081333D9C02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B502BC35-1380-4DB6-BBA9-51F87CCA3A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B502BC35-1380-4DB6-BBA9-51F87CCA3A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B502BC35-1380-4DB6-BBA9-51F87CCA3A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B502BC35-1380-4DB6-BBA9-51F87CCA3A1B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A5F23DF-CAE6-497C-8BD7-A61E5672A2EC}
+	EndGlobalSection
+EndGlobal
