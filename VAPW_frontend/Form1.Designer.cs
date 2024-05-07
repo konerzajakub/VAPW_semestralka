@@ -39,6 +39,7 @@
             button2 = new Button();
             progressBar1 = new ProgressBar();
             label1 = new Label();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -52,7 +53,7 @@
             pictureBox1.Image = Properties.Resources.car;
             pictureBox1.Location = new Point(12, 478);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(254, 154);
+            pictureBox1.Size = new Size(227, 154);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -111,7 +112,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(117, 68);
+            button1.Location = new Point(32, 186);
             button1.Name = "button1";
             button1.Size = new Size(122, 59);
             button1.TabIndex = 8;
@@ -120,11 +121,11 @@
             // 
             // button2
             // 
-            button2.Location = new Point(117, 177);
+            button2.Location = new Point(275, 142);
             button2.Name = "button2";
             button2.Size = new Size(122, 57);
             button2.TabIndex = 9;
-            button2.Text = "pripravit mycku";
+            button2.Text = "vjet dovnitř";
             button2.UseVisualStyleBackColor = true;
             // 
             // progressBar1
@@ -145,11 +146,21 @@
             label1.Text = "progress mytí";
             label1.Click += label1_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(1008, 122);
+            button3.Name = "button3";
+            button3.Size = new Size(148, 57);
+            button3.TabIndex = 12;
+            button3.Text = "vyjet z myčky";
+            button3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1258, 666);
+            Controls.Add(button3);
             Controls.Add(label1);
             Controls.Add(progressBar1);
             Controls.Add(button2);
@@ -185,5 +196,6 @@
         private Button button2;
         private ProgressBar progressBar1;
         private Label label1;
+        private Button button3;
     }
 }
