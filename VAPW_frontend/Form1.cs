@@ -1,3 +1,4 @@
+using System.Media;
 using System.Security.Policy;
 using System.Windows.Forms;
 using VAPW_backend;
@@ -18,6 +19,9 @@ namespace VAPW_frontend
         {
             InitializeComponent();
             mycka = new CarWash();
+
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\dante\Desktop\VAPW_semestralka\VAPW_frontend\img\Hood-Irony.wav");
+            simpleSound.Play();
 
             puvodniPozicePorsche = Porsche.Location;
 
@@ -67,7 +71,11 @@ namespace VAPW_frontend
                     {
 
                         var aktualniPozice = vstupniVrata.Location;
-                        if (aktualniPozice.Y == 233) { 
+                        if (aktualniPozice.Y == 233) {
+
+                            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\dante\Desktop\VAPW_semestralka\VAPW_frontend\img\angels-grapefruit-technique-sound-effect.wav");
+                            simpleSound.Play();
+
                             for (int iter = 0; iter < 223; iter++)
                             {
                                 vstupniVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y + iter);
@@ -149,6 +157,10 @@ namespace VAPW_frontend
             {
                 //Porsche.Location = new Point(puvodniPozicePorsche.X + 170, puvodniPozicePorsche.Y);
 
+                // sound effect
+                SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\dante\Desktop\VAPW_semestralka\VAPW_frontend\img\klouzani.wav");
+                simpleSound.Play();
+
                 var aktualniPozice = Porsche.Location;
 
                 for (int iter = 0; iter < 170; iter++)
@@ -173,6 +185,11 @@ namespace VAPW_frontend
             if (mycka.autoPozice == CarState.cekaNaMycku && predniSemafor.BackColor == Color.Green && vstupniVrata.Location.Y < 300)
             {
                 //Porsche.Location = new Point(Porsche.Location.X + 400, puvodniPozicePorsche.Y);
+
+                // sound effect
+                SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\dante\Desktop\VAPW_semestralka\VAPW_frontend\img\running_goofy.wav");
+                simpleSound.Play();
+
                 var aktualniPozice = Porsche.Location;
 
                 for (int iter = 0; iter < 400; iter++)
@@ -191,6 +208,10 @@ namespace VAPW_frontend
             if (mycka.autoPozice == CarState.uvnitrMycky && zadniSemafor.BackColor == Color.Green)
             {
                 //Porsche.Location = new Point(Porsche.Location.X + 400, puvodniPozicePorsche.Y);
+
+                // sound effect
+                SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\dante\Desktop\VAPW_semestralka\VAPW_frontend\img\goofy walking steps.wav");
+                simpleSound.Play();
 
                 var aktualniPozice = Porsche.Location;
 
