@@ -1,4 +1,5 @@
 using System.Security.Policy;
+using System.Windows.Forms;
 using VAPW_backend;
 using static VAPW_backend.CarWash;
 using Timer = System.Windows.Forms.Timer;
@@ -127,7 +128,19 @@ namespace VAPW_frontend
 
         private void vyjet_btn_Click(object sender, EventArgs e)
         {
+            if (mycka.autoPozice == CarState.uvnitrMycky && zadniSemafor.BackColor == Color.Green)
+            {
+                Porsche.Location = new Point(Porsche.Location.X + 400, puvodniPozicePorsche.Y);
 
+                for (int iter = 0; iter < 400; iter++)
+                {
+                    //Porsche.Location = new Point(puvodniPozicePorsche.X + iter + 400, puvodniPozicePorsche.Y);
+                }
+
+
+
+                mycka.autoPozice = CarState.zaMyckou;
+            }
         }
     }
 }

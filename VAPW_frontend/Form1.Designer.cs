@@ -127,6 +127,7 @@
             vyjet_btn.TabIndex = 12;
             vyjet_btn.Text = "vyjet z myčky";
             vyjet_btn.UseVisualStyleBackColor = true;
+            vyjet_btn.Click += vyjet_btn_Click;
             // 
             // vyberNapojeniNaModel
             // 
