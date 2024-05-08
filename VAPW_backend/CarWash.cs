@@ -70,7 +70,7 @@ namespace VAPW_backend
                         if (carWash.autoPozice == CarState.uvnitrMycky)
                         {
                             carWash.predniVrataOtevrena = false;
-                            carWash.zadniVrataOtevrena = false;
+                            //carWash.zadniVrataOtevrena = false;
                             carWash.predniSemafor = SemaforState.Cervena;
                             carWash.zadniSemafor = SemaforState.Cervena;
 

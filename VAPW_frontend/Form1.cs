@@ -65,23 +65,66 @@ namespace VAPW_frontend
                     // vrata
                     if (CarWashState.predniVrataOtevrena == false)
                     {
+
+                        var aktualniPozice = vstupniVrata.Location;
+                        if (aktualniPozice.Y == 233) { 
+                            for (int iter = 0; iter < 223; iter++)
+                            {
+                                vstupniVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y + iter);
+                            }
+                        }
+                        
+
                         vstupniVrata.Location = new Point(478, 439);
                     }
 
                     if (CarWashState.predniVrataOtevrena == true)
                     {
+                        var aktualniPozice = vstupniVrata.Location;
+                        if (aktualniPozice.Y == 426)
+                        {
+                            for (int iter = 0; iter < 223; iter++)
+                            {
+                                vstupniVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y - iter);
+                            }
+                        }
+
+
                         vstupniVrata.Location = new Point(478, 233);
                     }
 
                     if (CarWashState.zadniVrataOtevrena == false)
                     {
-                        vyjezdoveVrata.Location = new Point(906, 423);
+
+                        var aktualniPozice = vyjezdoveVrata.Location;
+                        if (aktualniPozice.Y == 233)
+                        {
+                            for (int iter = 0; iter < 223; iter++)
+                            {
+                                vyjezdoveVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y + iter);
+                            }
+                        }
+
+
+                        vyjezdoveVrata.Location = new Point(906, 439);
                     }
 
                     if (CarWashState.zadniVrataOtevrena == true)
                     {
+                        var aktualniPozice = vyjezdoveVrata.Location;
+                        if (aktualniPozice.Y == 439)
+                        {
+                            for (int iter = 0; iter < 223; iter++)
+                            {
+                                vyjezdoveVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y - iter);
+                            }
+                        }
+
+
                         vyjezdoveVrata.Location = new Point(906, 233);
                     }
+
+
 
                 }));
             }
@@ -151,7 +194,7 @@ namespace VAPW_frontend
 
                 var aktualniPozice = Porsche.Location;
 
-                for (int iter = 0; iter < 400; iter++)
+                for (int iter = 0; iter < 800; iter++)
                 {
                     Porsche.Location = new Point(aktualniPozice.X + iter, aktualniPozice.Y);
                 }
