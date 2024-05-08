@@ -104,7 +104,16 @@ namespace VAPW_frontend
         {
             if (mycka.autoPozice == CarState.cekaNaPrijezd)
             {
-                Porsche.Location = new Point(puvodniPozicePorsche.X + 170, puvodniPozicePorsche.Y);
+                //Porsche.Location = new Point(puvodniPozicePorsche.X + 170, puvodniPozicePorsche.Y);
+
+                var aktualniPozice = Porsche.Location;
+
+                for (int iter = 0; iter < 170; iter++)
+                {
+                    Porsche.Location = new Point(aktualniPozice.X + iter, aktualniPozice.Y);
+                }
+
+
                 mycka.autoPozice = CarState.cekaNaMycku;
             }
 
@@ -120,7 +129,15 @@ namespace VAPW_frontend
         {
             if (mycka.autoPozice == CarState.cekaNaMycku && predniSemafor.BackColor == Color.Green && vstupniVrata.Location.Y < 300)
             {
-                Porsche.Location = new Point(Porsche.Location.X + 400, puvodniPozicePorsche.Y);
+                //Porsche.Location = new Point(Porsche.Location.X + 400, puvodniPozicePorsche.Y);
+                var aktualniPozice = Porsche.Location;
+
+                for (int iter = 0; iter < 400; iter++)
+                {
+                    Porsche.Location = new Point(aktualniPozice.X + iter, aktualniPozice.Y);
+                }
+
+
                 mycka.autoPozice = CarState.uvnitrMycky;
             }
         }
@@ -130,11 +147,13 @@ namespace VAPW_frontend
         {
             if (mycka.autoPozice == CarState.uvnitrMycky && zadniSemafor.BackColor == Color.Green)
             {
-                Porsche.Location = new Point(Porsche.Location.X + 400, puvodniPozicePorsche.Y);
+                //Porsche.Location = new Point(Porsche.Location.X + 400, puvodniPozicePorsche.Y);
+
+                var aktualniPozice = Porsche.Location;
 
                 for (int iter = 0; iter < 400; iter++)
                 {
-                    //Porsche.Location = new Point(puvodniPozicePorsche.X + iter + 400, puvodniPozicePorsche.Y);
+                    Porsche.Location = new Point(aktualniPozice.X + iter, aktualniPozice.Y);
                 }
 
 
