@@ -72,14 +72,14 @@ namespace VAPW_frontend
                         vstupniVrata.Location = new Point(478, 233);
                     }
 
-                    if (CarWashState.predniVrataOtevrena == false)
+                    if (CarWashState.zadniVrataOtevrena == false)
                     {
-                        vstupniVrata.Location = new Point(906, 423);
+                        vyjezdoveVrata.Location = new Point(906, 423);
                     }
 
-                    if (CarWashState.predniVrataOtevrena == true)
+                    if (CarWashState.zadniVrataOtevrena == true)
                     {
-                        vstupniVrata.Location = new Point(478, 233);
+                        vyjezdoveVrata.Location = new Point(906, 233);
                     }
 
                 }));
@@ -111,6 +111,21 @@ namespace VAPW_frontend
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void jetDovnitr_btn_Click(object sender, EventArgs e)
+        {
+            if (mycka.autoPozice == CarState.cekaNaMycku && predniSemafor.BackColor == Color.Green && vstupniVrata.Location.Y < 300)
+            {
+                Porsche.Location = new Point(Porsche.Location.X + 400, puvodniPozicePorsche.Y);
+                mycka.autoPozice = CarState.uvnitrMycky;
+            }
+        }
+
+
+        private void vyjet_btn_Click(object sender, EventArgs e)
         {
 
         }

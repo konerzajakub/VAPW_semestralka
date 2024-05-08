@@ -28,7 +28,8 @@ namespace VAPW_backend
         // booleans pro vstup uživatele
         public bool jeAutoPripraveno { get; private set; } = false;
 
-        private bool Running { get; set; }
+        private bool Running { get; set; } = false;
+
 
         public int WorkingCycleMs = 5000;
 

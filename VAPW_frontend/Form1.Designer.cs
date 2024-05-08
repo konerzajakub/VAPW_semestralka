@@ -71,7 +71,7 @@
             // vstupniVrata
             // 
             vstupniVrata.Image = (Image)resources.GetObject("vstupniVrata.Image");
-            vstupniVrata.Location = new Point(476, 423);
+            vstupniVrata.Location = new Point(480, 423);
             vstupniVrata.Name = "vstupniVrata";
             vstupniVrata.Size = new Size(45, 206);
             vstupniVrata.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -106,6 +106,7 @@
             jetDovnitr_btn.TabIndex = 9;
             jetDovnitr_btn.Text = "vjet dovnitř";
             jetDovnitr_btn.UseVisualStyleBackColor = true;
+            jetDovnitr_btn.Click += jetDovnitr_btn_Click;
             // 
             // label1
             // 
@@ -160,15 +161,15 @@
             ClientSize = new Size(1258, 666);
             Controls.Add(zadniSemafor);
             Controls.Add(predniSemafor);
+            Controls.Add(vyjezdoveVrata);
+            Controls.Add(vstupniVrata);
+            Controls.Add(Porsche);
             Controls.Add(vyberNapojeniNaModel);
             Controls.Add(vyjet_btn);
             Controls.Add(label1);
             Controls.Add(jetDovnitr_btn);
             Controls.Add(prijetPred_btn);
-            Controls.Add(vyjezdoveVrata);
-            Controls.Add(vstupniVrata);
             Controls.Add(barak);
-            Controls.Add(Porsche);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
