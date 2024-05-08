@@ -11,14 +11,14 @@ namespace VAPW_backend
     {
         public bool predniVrataOtevrena { get; private set; }
         public bool zadniVrataOtevrena { get; private set; }
-        public SemaforState predniSemsafor { get; private set; }
+        public SemaforState predniSemafor { get; private set; }
         public SemaforState zadniSemafor { get; private set; }
 
         public CarWashDTO(bool _predniVrataOtevrena, bool _zadniVrataOtevrena, SemaforState _predniSemafor, SemaforState _zadniSemafor)
         {
             predniVrataOtevrena = _predniVrataOtevrena;
             zadniVrataOtevrena = _zadniVrataOtevrena;
-            predniSemsafor = _predniSemafor;
+            predniSemafor = _predniSemafor;
             zadniSemafor = _zadniSemafor;
         }
     }

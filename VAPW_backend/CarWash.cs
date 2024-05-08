@@ -17,12 +17,13 @@ namespace VAPW_backend
         public SemaforState predniSemafor { get; private set; } = SemaforState.Cervena;
         public SemaforState zadniSemafor { get; private set; } = SemaforState.Cervena;
 
-        public CarState autoPozice { get; private set; }
+        public CarState autoPozice { get;  set; }
 
         private CarWashDTO _CarWashState { get; set; }
-        public CarWashDTO CarWashState { get { return _CarWashState; } private set { var changed = value != _CarWashState; _CarWashState = value; if (changed) OnCarWashStateChanged?.Invoke(this, _CarWashState); } }
+        public CarWashDTO CarWashState { get { return _CarWashState; } private set { var changed = (value != _CarWashState); _CarWashState = value; if (changed) OnCarWashStateChanged?.Invoke(this, _CarWashState); } }
 
         public delegate void ChangedCarWashState(object sender, CarWashDTO CarWashState);
+        public event ChangedCarWashState OnCarWashStateChanged;
 
         // booleans pro vstup uživatele
         public bool jeAutoPripraveno { get; private set; } = false;
@@ -39,13 +40,11 @@ namespace VAPW_backend
             var processStopWatch = Stopwatch.StartNew();
             int stavAutomatu = 0;
 
-
-
             // nastaveni pocatecniho stavu
             carWash.autoPozice = CarState.cekaNaPrijezd;
 
 
-            while (carWash.Running)
+            while (true)
             {
                 Stopwatch timingStopWatch = Stopwatch.StartNew();
 
@@ -59,6 +58,9 @@ namespace VAPW_backend
                         {
                             carWash.predniVrataOtevrena = true;
                             carWash.predniSemafor = SemaforState.Želená;
+
+                            carWash.CarWashState = UpdateDTO(carWash);
+
                             stavAutomatu = 1;
                         }
                         break;
@@ -67,7 +69,11 @@ namespace VAPW_backend
                         if (carWash.autoPozice == CarState.uvnitrMycky)
                         {
                             carWash.predniVrataOtevrena = false;
+                            carWash.zadniVrataOtevrena = false;
                             carWash.predniSemafor = SemaforState.Cervena;
+                            carWash.zadniSemafor = SemaforState.Cervena;
+
+                            carWash.CarWashState = UpdateDTO(carWash);
 
                             // aktivace procesu mytí
                             carWash.Running = true;
@@ -76,10 +82,13 @@ namespace VAPW_backend
                         break;
 
                     case 2:
-                        if (carWash.Running = false)
+                        if (carWash.Running == false)
                         {
                             carWash.zadniVrataOtevrena = true;
                             carWash.zadniSemafor = SemaforState.Želená;
+
+                            carWash.CarWashState = UpdateDTO(carWash);
+
                             stavAutomatu = 3;
                         }
                         break;
@@ -89,6 +98,9 @@ namespace VAPW_backend
                         {
                             carWash.zadniVrataOtevrena = false;
                             carWash.zadniSemafor = SemaforState.Cervena;
+
+                            carWash.CarWashState = UpdateDTO(carWash);
+
                             stavAutomatu = 0;
                         }
                         break;
@@ -110,9 +122,11 @@ namespace VAPW_backend
                         Thread.Sleep(toWaitMs);
                         carWash.Running = false;
                     }
-                    catch (ThreadInterruptedException e)
+                    catch (ThreadInterruptedException)
                     {
                         carWash.Running = false;
+
+
                         carWash.Dispose();
                     }
                 }
@@ -123,7 +137,7 @@ namespace VAPW_backend
 
         public CarWash()
         {
-            Running = true;
+            Running = false;
             _thread.Start(this);
         }
 
