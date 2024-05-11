@@ -40,28 +40,19 @@
             vyberNapojeniNaModel = new Button();
             predniSemafor = new Panel();
             zadniSemafor = new Panel();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox5 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)Porsche).BeginInit();
             ((System.ComponentModel.ISupportInitialize)barak).BeginInit();
             ((System.ComponentModel.ISupportInitialize)vstupniVrata).BeginInit();
             ((System.ComponentModel.ISupportInitialize)vyjezdoveVrata).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // Porsche
             // 
             Porsche.Image = Properties.Resources.car;
-            Porsche.Location = new Point(35, 478);
+            Porsche.Location = new Point(40, 605);
+            Porsche.Margin = new Padding(3, 4, 3, 4);
             Porsche.Name = "Porsche";
-            Porsche.Size = new Size(227, 154);
+            Porsche.Size = new Size(259, 195);
             Porsche.SizeMode = PictureBoxSizeMode.StretchImage;
             Porsche.TabIndex = 0;
             Porsche.TabStop = false;
@@ -71,9 +62,10 @@
             barak.ErrorImage = (Image)resources.GetObject("barak.ErrorImage");
             barak.Image = (Image)resources.GetObject("barak.Image");
             barak.InitialImage = (Image)resources.GetObject("barak.InitialImage");
-            barak.Location = new Point(508, 86);
+            barak.Location = new Point(581, 109);
+            barak.Margin = new Padding(3, 4, 3, 4);
             barak.Name = "barak";
-            barak.Size = new Size(424, 568);
+            barak.Size = new Size(485, 719);
             barak.SizeMode = PictureBoxSizeMode.StretchImage;
             barak.TabIndex = 3;
             barak.TabStop = false;
@@ -81,9 +73,10 @@
             // vstupniVrata
             // 
             vstupniVrata.Image = (Image)resources.GetObject("vstupniVrata.Image");
-            vstupniVrata.Location = new Point(469, 426);
+            vstupniVrata.Location = new Point(536, 540);
+            vstupniVrata.Margin = new Padding(3, 4, 3, 4);
             vstupniVrata.Name = "vstupniVrata";
-            vstupniVrata.Size = new Size(45, 206);
+            vstupniVrata.Size = new Size(51, 261);
             vstupniVrata.SizeMode = PictureBoxSizeMode.StretchImage;
             vstupniVrata.TabIndex = 4;
             vstupniVrata.TabStop = false;
@@ -91,18 +84,20 @@
             // vyjezdoveVrata
             // 
             vyjezdoveVrata.Image = (Image)resources.GetObject("vyjezdoveVrata.Image");
-            vyjezdoveVrata.Location = new Point(906, 423);
+            vyjezdoveVrata.Location = new Point(1035, 536);
+            vyjezdoveVrata.Margin = new Padding(3, 4, 3, 4);
             vyjezdoveVrata.Name = "vyjezdoveVrata";
-            vyjezdoveVrata.Size = new Size(46, 209);
+            vyjezdoveVrata.Size = new Size(53, 265);
             vyjezdoveVrata.SizeMode = PictureBoxSizeMode.StretchImage;
             vyjezdoveVrata.TabIndex = 5;
             vyjezdoveVrata.TabStop = false;
             // 
             // prijetPred_btn
             // 
-            prijetPred_btn.Location = new Point(48, 211);
+            prijetPred_btn.Location = new Point(55, 267);
+            prijetPred_btn.Margin = new Padding(3, 4, 3, 4);
             prijetPred_btn.Name = "prijetPred_btn";
-            prijetPred_btn.Size = new Size(122, 59);
+            prijetPred_btn.Size = new Size(139, 75);
             prijetPred_btn.TabIndex = 8;
             prijetPred_btn.Text = "jet autem";
             prijetPred_btn.UseVisualStyleBackColor = true;
@@ -110,9 +105,10 @@
             // 
             // jetDovnitr_btn
             // 
-            jetDovnitr_btn.Location = new Point(295, 211);
+            jetDovnitr_btn.Location = new Point(337, 267);
+            jetDovnitr_btn.Margin = new Padding(3, 4, 3, 4);
             jetDovnitr_btn.Name = "jetDovnitr_btn";
-            jetDovnitr_btn.Size = new Size(122, 57);
+            jetDovnitr_btn.Size = new Size(139, 72);
             jetDovnitr_btn.TabIndex = 9;
             jetDovnitr_btn.Text = "vjet dovnitř";
             jetDovnitr_btn.UseVisualStyleBackColor = true;
@@ -122,18 +118,19 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(529, 25);
+            label1.Location = new Point(717, 38);
             label1.Name = "label1";
-            label1.Size = new Size(251, 47);
+            label1.Size = new Size(204, 47);
             label1.TabIndex = 11;
-            label1.Text = "Freaky Mytíčko";
+            label1.Text = "Auto myčka";
             label1.Click += label1_Click;
             // 
             // vyjet_btn
             // 
-            vyjet_btn.Location = new Point(1008, 122);
+            vyjet_btn.Location = new Point(1152, 155);
+            vyjet_btn.Margin = new Padding(3, 4, 3, 4);
             vyjet_btn.Name = "vyjet_btn";
-            vyjet_btn.Size = new Size(148, 57);
+            vyjet_btn.Size = new Size(169, 72);
             vyjet_btn.TabIndex = 12;
             vyjet_btn.Text = "vyjet z myčky";
             vyjet_btn.UseVisualStyleBackColor = true;
@@ -141,9 +138,10 @@
             // 
             // vyberNapojeniNaModel
             // 
-            vyberNapojeniNaModel.Location = new Point(35, 61);
+            vyberNapojeniNaModel.Location = new Point(40, 77);
+            vyberNapojeniNaModel.Margin = new Padding(3, 4, 3, 4);
             vyberNapojeniNaModel.Name = "vyberNapojeniNaModel";
-            vyberNapojeniNaModel.Size = new Size(399, 64);
+            vyberNapojeniNaModel.Size = new Size(456, 81);
             vyberNapojeniNaModel.TabIndex = 13;
             vyberNapojeniNaModel.Text = "Výběr způsobu napojení na model";
             vyberNapojeniNaModel.UseVisualStyleBackColor = true;
@@ -152,79 +150,26 @@
             // predniSemafor
             // 
             predniSemafor.BackColor = Color.Red;
-            predniSemafor.Location = new Point(398, 349);
+            predniSemafor.Location = new Point(455, 442);
+            predniSemafor.Margin = new Padding(3, 4, 3, 4);
             predniSemafor.Name = "predniSemafor";
-            predniSemafor.Size = new Size(65, 65);
+            predniSemafor.Size = new Size(74, 82);
             predniSemafor.TabIndex = 14;
             // 
             // zadniSemafor
             // 
             zadniSemafor.BackColor = Color.Red;
-            zadniSemafor.Location = new Point(997, 349);
+            zadniSemafor.Location = new Point(1139, 442);
+            zadniSemafor.Margin = new Padding(3, 4, 3, 4);
             zadniSemafor.Name = "zadniSemafor";
-            zadniSemafor.Size = new Size(68, 64);
+            zadniSemafor.Size = new Size(78, 81);
             zadniSemafor.TabIndex = 15;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1008, 51);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(30, 21);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 16;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(851, 25);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(50, 47);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 17;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(907, 25);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(50, 47);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 18;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(975, 12);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(102, 91);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 19;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(786, 25);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(53, 47);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 20;
-            pictureBox5.TabStop = false;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1258, 666);
-            Controls.Add(pictureBox5);
-            Controls.Add(pictureBox1);
-            Controls.Add(pictureBox4);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
+            ClientSize = new Size(1438, 844);
             Controls.Add(zadniSemafor);
             Controls.Add(predniSemafor);
             Controls.Add(vyjezdoveVrata);
@@ -236,6 +181,7 @@
             Controls.Add(jetDovnitr_btn);
             Controls.Add(prijetPred_btn);
             Controls.Add(barak);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -243,11 +189,6 @@
             ((System.ComponentModel.ISupportInitialize)barak).EndInit();
             ((System.ComponentModel.ISupportInitialize)vstupniVrata).EndInit();
             ((System.ComponentModel.ISupportInitialize)vyjezdoveVrata).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -265,10 +206,5 @@
         private Button vyberNapojeniNaModel;
         private Panel predniSemafor;
         private Panel zadniSemafor;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox5;
     }
 }
