@@ -37,7 +37,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(68, 66);
+            label1.Location = new Point(78, 84);
             label1.Name = "label1";
             label1.Size = new Size(440, 45);
             label1.TabIndex = 0;
@@ -47,34 +47,39 @@
             // 
             radioButton1.AutoSize = true;
             radioButton1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radioButton1.Location = new Point(163, 150);
+            radioButton1.Location = new Point(186, 244);
+            radioButton1.Margin = new Padding(3, 4, 3, 4);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(93, 36);
             radioButton1.TabIndex = 1;
             radioButton1.TabStop = true;
             radioButton1.Text = "Timer";
             radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.Click += radioButton1_Click;
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
             radioButton2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radioButton2.Location = new Point(163, 210);
+            radioButton2.Location = new Point(186, 184);
+            radioButton2.Margin = new Padding(3, 4, 3, 4);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(112, 36);
             radioButton2.TabIndex = 2;
             radioButton2.TabStop = true;
             radioButton2.Text = "Událost";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.Click += radioButton2_Click;
             // 
             // Form2
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(593, 338);
+            ClientSize = new Size(678, 428);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form2";
             Text = "Form2";
             ResumeLayout(false);

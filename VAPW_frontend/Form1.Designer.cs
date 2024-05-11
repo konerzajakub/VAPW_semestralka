@@ -181,6 +181,7 @@
             Controls.Add(jetDovnitr_btn);
             Controls.Add(prijetPred_btn);
             Controls.Add(barak);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";

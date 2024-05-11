@@ -3,6 +3,7 @@ using System.Security.Policy;
 using System.Windows.Forms;
 using VAPW_backend;
 using static VAPW_backend.CarWash;
+
 using Timer = System.Windows.Forms.Timer;
 
 
@@ -15,6 +16,8 @@ namespace VAPW_frontend
         Point puvodniPozicePorsche;
         bool handleEvents = true;
 
+        Timer timer = new Timer();
+
         public Form1()
         {
             InitializeComponent();
@@ -24,10 +27,108 @@ namespace VAPW_frontend
 
             mycka.OnCarWashStateChanged += OnChangedCarWashState;
 
-            //timer.Tick += new EventHandler(CheckCarWash);
-            //timer.Interval = 100;
-            //timer.Start();
+            // timer stuff
+            timer.Tick += new EventHandler(onCheckCarWash);
+            // 100ms
+            timer.Interval = 100;
+            timer.Start();
 
+        }
+
+        private void onCheckCarWash(object? sender, EventArgs e)
+        {
+            timer.Stop();
+
+            if (!handleEvents)
+            {
+                // semafory
+                if (mycka.predniSemafor == SemaforState.Želená)
+                {
+                    predniSemafor.BackColor = Color.Green;
+                }
+
+                if (mycka.predniSemafor == SemaforState.Cervena)
+                {
+                    predniSemafor.BackColor = Color.Red;
+                }
+
+                if (mycka.zadniSemafor == SemaforState.Želená)
+                {
+                    zadniSemafor.BackColor = Color.Green;
+                }
+
+                if (mycka.zadniSemafor == SemaforState.Cervena)
+                {
+                    zadniSemafor.BackColor = Color.Red;
+                }
+
+
+                // vrata
+                if (mycka.predniVrataOtevrena == false)
+                {
+
+                    var aktualniPozice = vstupniVrata.Location;
+                    if (aktualniPozice.Y == 233)
+                    {
+
+                        for (int iter = 0; iter < 223; iter++)
+                        {
+                            vstupniVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y + iter);
+                        }
+                    }
+
+
+                    vstupniVrata.Location = new Point(478, 439);
+                }
+
+                if (mycka.predniVrataOtevrena == true)
+                {
+                    var aktualniPozice = vstupniVrata.Location;
+                    if (aktualniPozice.Y == 426)
+                    {
+                        for (int iter = 0; iter < 223; iter++)
+                        {
+                            vstupniVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y - iter);
+                        }
+                    }
+
+
+                    vstupniVrata.Location = new Point(478, 233);
+                }
+
+                if (mycka.zadniVrataOtevrena == false)
+                {
+
+                    var aktualniPozice = vyjezdoveVrata.Location;
+                    if (aktualniPozice.Y == 233)
+                    {
+                        for (int iter = 0; iter < 223; iter++)
+                        {
+                            vyjezdoveVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y + iter);
+                        }
+                    }
+
+
+                    vyjezdoveVrata.Location = new Point(906, 439);
+                }
+
+                if (mycka.zadniVrataOtevrena == true)
+                {
+                    var aktualniPozice = vyjezdoveVrata.Location;
+                    if (aktualniPozice.Y == 439)
+                    {
+                        for (int iter = 0; iter < 223; iter++)
+                        {
+                            vyjezdoveVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y - iter);
+                        }
+                    }
+
+
+                    vyjezdoveVrata.Location = new Point(906, 233);
+                }
+            }
+
+            timer.Start();
         }
 
         private void OnChangedCarWashState(object sender, CarWashDTO CarWashState)
@@ -143,6 +244,8 @@ namespace VAPW_frontend
         {
             Form2 okenko = new Form2();
             okenko.ShowDialog();
+
+            handleEvents = okenko.useEvents;
         }
 
         private void prijetPred_btn_Click(object sender, EventArgs e)
@@ -150,7 +253,6 @@ namespace VAPW_frontend
             if (mycka.autoPozice == CarState.cekaNaPrijezd)
             {
                 //Porsche.Location = new Point(puvodniPozicePorsche.X + 170, puvodniPozicePorsche.Y);
-
 
                 var aktualniPozice = Porsche.Location;
 
