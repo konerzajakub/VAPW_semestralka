@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace VAPW_backend
 {
-        public enum SemaforState
-        {
-            Želená,
-            Cervena
-        }
+    // Stav semaforu
+    public enum SemaforState
+    {
+        Želená,
+        Cervena
+    }
 }

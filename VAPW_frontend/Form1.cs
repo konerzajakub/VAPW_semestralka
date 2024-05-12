@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using VAPW_backend;
 using static VAPW_backend.CarWash;
 
+// Vybrání správného Timeru
 using Timer = System.Windows.Forms.Timer;
 
 
@@ -11,11 +12,13 @@ namespace VAPW_frontend
 {
     public partial class Form1 : Form
     {
-
+        // Deklarace promìnných
         CarWash mycka;
         Point puvodniPozicePorsche;
+        // Defualtnì - eventy
         bool handleEvents = true;
 
+        // Timer
         Timer timer = new Timer();
 
         public Form1()
@@ -131,7 +134,7 @@ namespace VAPW_frontend
             timer.Start();
         }
 
-        private void OnChangedCarWashState(object sender, CarWashDTO CarWashState)
+        private void OnChangedCarWashState(object sender, CarWashDataEnkapsulace CarWashState)
         {
             if (handleEvents)
             {
