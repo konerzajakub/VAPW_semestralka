@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace VAPW_backend
 {
 
-    // DTO pro komunikaci s frontendem
+    // Data Transfer Object pro komunikaci s frontendem
     public class CarWashDataEnkapsulace
     {
         // Stav vrat & semaforů
@@ -18,7 +18,7 @@ namespace VAPW_backend
 
         public CarWashDataEnkapsulace(bool _predniVrataOtevrena, bool _zadniVrataOtevrena, SemaforState _predniSemafor, SemaforState _zadniSemafor)
         {
-            // Konstruktor třídy, který nastavuje výchozí hodnoty
+            // Konstruktor třídy, který nastavuje hodnoty z parametru
             predniVrataOtevrena = _predniVrataOtevrena;
             zadniVrataOtevrena = _zadniVrataOtevrena;
             predniSemafor = _predniSemafor;

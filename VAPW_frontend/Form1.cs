@@ -12,11 +12,12 @@ namespace VAPW_frontend
 {
     public partial class Form1 : Form
     {
-        // Deklarace promìnných
+        // Deklarace myèky & pùvodní pozice auta
         CarWash mycka;
         Point puvodniPozicePorsche;
-        // Defualtnì - eventy
-        bool handleEvents = true;
+
+        // Defaultnì - eventy
+        bool eventMode = true;
 
         // Timer
         Timer timer = new Timer();
@@ -24,10 +25,14 @@ namespace VAPW_frontend
         public Form1()
         {
             InitializeComponent();
+
+            // Inicializace myèky
             mycka = new CarWash();
 
+            // Inicializace auta
             puvodniPozicePorsche = Porsche.Location;
 
+            // Pøidání eventu 
             mycka.OnCarWashStateChanged += OnChangedCarWashState;
 
             // timer stuff
@@ -37,14 +42,17 @@ namespace VAPW_frontend
             timer.Start();
 
         }
-
+        
+        // Timer zpùsob kontroly zmìny stavu
         private void onCheckCarWash(object? sender, EventArgs e)
         {
+            // Zastavení timeru aby se to nepøekrývalo
             timer.Stop();
 
-            if (!handleEvents)
+            // Pokud není zapnuta kontrola pøes eventy
+            if (!eventMode)
             {
-                // semafory
+                // Zmìna semaforù
                 if (mycka.predniSemafor == SemaforState.Želená)
                 {
                     predniSemafor.BackColor = Color.Green;
@@ -65,11 +73,9 @@ namespace VAPW_frontend
                     zadniSemafor.BackColor = Color.Red;
                 }
 
-
-                // vrata
+                // Vrata + animace
                 if (mycka.predniVrataOtevrena == false)
                 {
-
                     var aktualniPozice = vstupniVrata.Location;
                     if (aktualniPozice.Y == 233)
                     {
@@ -94,14 +100,11 @@ namespace VAPW_frontend
                             vstupniVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y - iter);
                         }
                     }
-
-
                     vstupniVrata.Location = new Point(478, 233);
                 }
 
                 if (mycka.zadniVrataOtevrena == false)
                 {
-
                     var aktualniPozice = vyjezdoveVrata.Location;
                     if (aktualniPozice.Y == 233)
                     {
@@ -110,8 +113,6 @@ namespace VAPW_frontend
                             vyjezdoveVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y + iter);
                         }
                     }
-
-
                     vyjezdoveVrata.Location = new Point(906, 439);
                 }
 
@@ -125,27 +126,23 @@ namespace VAPW_frontend
                             vyjezdoveVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y - iter);
                         }
                     }
-
-
                     vyjezdoveVrata.Location = new Point(906, 233);
                 }
             }
 
+            // Spuštìní timeru
             timer.Start();
         }
 
+        // Event zpùsob kontroly zmìny stavu
         private void OnChangedCarWashState(object sender, CarWashDataEnkapsulace CarWashState)
         {
-            if (handleEvents)
+            // Pokud kontrola eventù
+            if (eventMode)
             {
                 Invoke(new Action(() =>
                 {
-                    //doSemaphor(InSemafor, CarWashState.InputSemafor);
-                    //doSemaphor(OutSemafor, CarWashState.OutputSemafor);
-                    //doGates(InGate, CarWashState.InputVrataOpen);
-                    //doGates(OutGate, CarWashState.OutputVrataOpen);
-
-                    // semafory
+                    // Zmìna semaforù
                     if (CarWashState.predniSemafor == SemaforState.Želená)
                     {
                         predniSemafor.BackColor = Color.Green;
@@ -167,10 +164,9 @@ namespace VAPW_frontend
                     }
 
 
-                    // vrata
+                    // Zmìna vrat & animace
                     if (CarWashState.predniVrataOtevrena == false)
                     {
-
                         var aktualniPozice = vstupniVrata.Location;
                         if (aktualniPozice.Y == 233) {
 
@@ -179,8 +175,6 @@ namespace VAPW_frontend
                                 vstupniVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y + iter);
                             }
                         }
-                        
-
                         vstupniVrata.Location = new Point(478, 439);
                     }
 
@@ -194,8 +188,6 @@ namespace VAPW_frontend
                                 vstupniVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y - iter);
                             }
                         }
-
-
                         vstupniVrata.Location = new Point(478, 233);
                     }
 
@@ -210,8 +202,6 @@ namespace VAPW_frontend
                                 vyjezdoveVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y + iter);
                             }
                         }
-
-
                         vyjezdoveVrata.Location = new Point(906, 439);
                     }
 
@@ -225,32 +215,23 @@ namespace VAPW_frontend
                                 vyjezdoveVrata.Location = new Point(aktualniPozice.X, aktualniPozice.Y - iter);
                             }
                         }
-
-
                         vyjezdoveVrata.Location = new Point(906, 233);
                     }
-
-
-
                 }));
             }
         }
 
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
+        // Vytvoøení formu pro výbìr event/timer
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 okenko = new Form2();
             okenko.ShowDialog();
 
-            handleEvents = okenko.useEvents;
+            // Nastavení výsledného výbìru
+            eventMode = okenko.useEvents;
         }
 
+        // Tlaèítko pro pohyb auta pøed myèku
         private void prijetPred_btn_Click(object sender, EventArgs e)
         {
             if (mycka.autoPozice == CarState.cekaNaPrijezd)
@@ -263,19 +244,18 @@ namespace VAPW_frontend
                 {
                     Porsche.Location = new Point(aktualniPozice.X + iter, aktualniPozice.Y);
                 }
-
-
+                // Zmìna pozice auta
                 mycka.autoPozice = CarState.cekaNaMycku;
             }
-
-
         }
 
+        // ?? co to je za tlaèítko, nejde vidìt v designeru
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
+        // Tlaèítko pro pohyb auta dovnitø myèky
         private void jetDovnitr_btn_Click(object sender, EventArgs e)
         {
             if (mycka.autoPozice == CarState.cekaNaMycku && predniSemafor.BackColor == Color.Green && vstupniVrata.Location.Y < 300)
@@ -288,13 +268,12 @@ namespace VAPW_frontend
                 {
                     Porsche.Location = new Point(aktualniPozice.X + iter, aktualniPozice.Y);
                 }
-
-
+                // Zmìna pozice auta
                 mycka.autoPozice = CarState.uvnitrMycky;
             }
         }
 
-
+        // Tlaèítko pro vyjetí z myèky
         private void vyjet_btn_Click(object sender, EventArgs e)
         {
             if (mycka.autoPozice == CarState.uvnitrMycky && zadniSemafor.BackColor == Color.Green)
@@ -307,9 +286,7 @@ namespace VAPW_frontend
                 {
                     Porsche.Location = new Point(aktualniPozice.X + iter, aktualniPozice.Y);
                 }
-
-
-
+                // Zmìna pozice auta
                 mycka.autoPozice = CarState.zaMyckou;
             }
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VAPW_backend
 {
-    // Stav auta
+    // Stavy auta
     public enum CarState
     {
         cekaNaPrijezd,
